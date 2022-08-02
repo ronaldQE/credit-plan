@@ -10,11 +10,13 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Link, Outlet } from 'react-router-dom';
 
 const pages = [
-    {title:'Teoría', path:'/teoria'},
-    {title:'Credito', path:'/sim'},
-    
+  { title: 'Teoría', path: '/teoria' },
+  { title: 'Credito', path: '/sim' },
+  { title: 'Contactos', path: '/cont' },
+
 ];
 
 const NavBar = () => {
@@ -29,6 +31,8 @@ const NavBar = () => {
   };
 
   return (
+    <div>
+    
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -92,7 +96,7 @@ const NavBar = () => {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -110,9 +114,9 @@ const NavBar = () => {
             {pages.map((page) => (
               <Button
                 key={page.title}
-                onClick={handleCloseNavMenu}
-                href={page.path}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                as = {Link} to ={page.path}
+                //onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block', textDecoration: 'none' }}
               >
                 {page.title}
               </Button>
@@ -122,6 +126,10 @@ const NavBar = () => {
         </Toolbar>
       </Container>
     </AppBar>
+    {/* <section>
+      <Outlet></Outlet>
+    </section> */}
+    </div>
   );
 };
 export default NavBar;
