@@ -1,15 +1,18 @@
 {
   "files": {
-    "main.css": "/financial-mathematics/static/css/main.073c9b0a.css",
-    "main.js": "/financial-mathematics/static/js/main.e92b27e3.js",
+    "main.css": "/financial-mathematics/static/css/main.7fd68467.css",
+    "main.js": "/financial-mathematics/static/js/main.b0420497.js",
     "static/js/787.4bb7fd0c.chunk.js": "/financial-mathematics/static/js/787.4bb7fd0c.chunk.js",
+    "static/media/tasaInteres.PNG": "/financial-mathematics/static/media/tasaInteres.356f3cf8c61390ec5ef8.PNG",
+    "static/media/compuesto.PNG": "/financial-mathematics/static/media/compuesto.bed8826be0376528ddae.PNG",
+    "static/media/simple.PNG": "/financial-mathematics/static/media/simple.dfe83b39c0215d105229.PNG",
     "index.html": "/financial-mathematics/index.html",
-    "main.073c9b0a.css.map": "/financial-mathematics/static/css/main.073c9b0a.css.map",
-    "main.e92b27e3.js.map": "/financial-mathematics/static/js/main.e92b27e3.js.map",
+    "main.7fd68467.css.map": "/financial-mathematics/static/css/main.7fd68467.css.map",
+    "main.b0420497.js.map": "/financial-mathematics/static/js/main.b0420497.js.map",
     "787.4bb7fd0c.chunk.js.map": "/financial-mathematics/static/js/787.4bb7fd0c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.e92b27e3.js"
+    "static/css/main.7fd68467.css",
+    "static/js/main.b0420497.js"
   ]
 }
