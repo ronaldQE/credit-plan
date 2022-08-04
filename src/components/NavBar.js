@@ -10,10 +10,10 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { Link, Outlet } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 const pages = [
-  { title: 'Teoría', path: '/teoria' },
+  { title: 'Interés', path: '/tasa' },
   { title: 'Credito', path: '/sim' },
   { title: 'Contactos', path: '/cont' },
 
@@ -31,7 +31,7 @@ const NavBar = () => {
   };
 
   return (
-    <div>
+    <Box>
     
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -85,7 +85,7 @@ const NavBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.title} onClick={handleCloseNavMenu}>
+                <MenuItem key={page.title}  as = {Link} to ={page.path} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center"  >{page.title}</Typography>
                 </MenuItem>
               ))}
@@ -129,7 +129,7 @@ const NavBar = () => {
     {/* <section>
       <Outlet></Outlet>
     </section> */}
-    </div>
+    </Box>
   );
 };
 export default NavBar;
