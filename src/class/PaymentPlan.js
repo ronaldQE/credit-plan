@@ -174,11 +174,4 @@ class PaymentPlan {
 
 }
 
-let plan1 = new PaymentPlan(30000, 4.5, 6, "2022-8-6")
-
-console.log("Pago: ", plan1.calcularPago_PriceFormat())
-console.table(plan1.generatePlan_Price())
-console.table(plan1.generatePlan_Price_Gracia(2))
-console.table(plan1.generatePlan_Const())
-console.table(plan1.generatePlan_Const_Gracia(3))
 
