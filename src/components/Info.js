@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 const Info = (props) => {
 
     return (
-        <Box sx={{ minWidth: 275 }}>
+        <Box sx={{ minWidth: 275, marginTop:"20px" }}>
             <Card variant="outlined">
                 <React.Fragment>
                     <CardContent sx={{ textAlign: "start" }}>
@@ -21,12 +21,14 @@ const Info = (props) => {
                             {props.title}
                         </Typography>
 
-                        <Typography variant="body2">
-                            {props.paragraph}
+                        {props.paragraph.map((parr)=>(
+                            <Typography variant="body2">
+                            {parr}
                             <br />
 
                         </Typography>
-                        <Card variant="outlined" sx={{ width: "220px", display: "block", marginTop: "10px", marginBottom: "10px", margin: "auto" }}>
+                        ))}
+                        {props.formulaImg ? <Card variant="outlined" sx={{ width: "220px", display: "block", marginTop: "10px", marginBottom: "10px", margin: "auto" }}>
 
                             <CardMedia
                                 sx={{ width: "200px", display: "block", margin: "auto" }}
@@ -35,7 +37,7 @@ const Info = (props) => {
                                 image={props.formulaImg}
                                 alt="tasa"
                             />
-                        </Card>
+                        </Card> : null}
                         <Box>
                             {
                                 props.descriptionFormula.map((des, index) => (
