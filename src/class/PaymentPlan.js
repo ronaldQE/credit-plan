@@ -174,4 +174,5 @@ class PaymentPlan {
 
 }
 
+export default PaymentPlan;
 

@@ -11,6 +11,7 @@ import imgAPrice from '../img/credit/APrice.PNG';
 import imgInteresPrice from '../img/credit/interesPrice.PNG';
 import imgKPrice from '../img/credit/kPrice.PNG';
 import imgTablaPrice from '../img/credit/tablaPrice.PNG';
+import TablePaymentPlan from "../components/TablePaymentPlan";
 
 
 const Simulation = () => {
@@ -77,6 +78,8 @@ const Simulation = () => {
         ))
 
       }
+      <TablePaymentPlan />
+
     </div>
   )
 }
