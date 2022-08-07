@@ -10,19 +10,22 @@ import PaymentPlan from '../class/PaymentPlan'
 
 
 let plan1 = new PaymentPlan(30000, 4.5, 6, "2022-8-7");
+const headTable=["N°","Saldo","Amortización","Interés","Pago","Fecha"]
 export default function TablePaymentPlan() {
     let data = plan1.generatePlan_Price()
+    
     return (
         <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-                <TableHead>
+            <Table sx={{ minWidth: 650, }} size="small" aria-label="a dense table">
+                <TableHead sx={{background:"#CCCCCC"}}>
                     <TableRow>
-                        <TableCell>n</TableCell>
-                        <TableCell align="right">Saldo</TableCell>
-                        <TableCell align="right">Amotizacion</TableCell>
-                        <TableCell align="right">Interes</TableCell>
-                        <TableCell align="right">Pago</TableCell>
-                        <TableCell align="right">Fecha</TableCell>
+                        { headTable.map((title)=>(
+                            title==="N°"?
+                            <TableCell align="center">{title}</TableCell>
+                            :
+                            <TableCell align="right">{title}</TableCell>
+                        ))
+                        }
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -31,7 +34,7 @@ export default function TablePaymentPlan() {
                             key={index}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
-                            <TableCell component="th" scope="row">
+                            <TableCell component="th" scope="row" align="center">
                                 {row.num}
                             </TableCell>
                             <TableCell align="right">{row.saldo}</TableCell>
