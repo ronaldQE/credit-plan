@@ -12,7 +12,14 @@ import Radio from '@mui/material/Radio';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-
+import Stack from '@mui/material/Stack';
+//import TextField from '@mui/material/TextField';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+//import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+//import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+//import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 
 const StyledFormControlLabel = styled((props) => <FormControlLabel {...props} />)(
     ({ theme, checked }) => ({
@@ -41,10 +48,17 @@ MyFormControlLabel.propTypes = {
     value: PropTypes.any,
 };
 
+
 const FormPaymentPlan = () => {
+    const [value, setValue] = React.useState(new Date());
+
+    const handleChange = (newValue) => {
+        setValue(newValue);
+    };
+
     return (
-        <Box sx={{marginBottom:"50px", display:"block"}}>
-            <Card sx={{ background: "#F4F5F5", width:700, margin:"auto", padding:"40px" }}>
+        <Box sx={{ marginBottom: "50px", display: "block" }}>
+            <Card sx={{ background: "#F4F5F5", width: 700, margin: "auto", padding: "40px" }}>
                 <CardContent>
                     <Box
                         component="form"
@@ -63,42 +77,56 @@ const FormPaymentPlan = () => {
                         </RadioGroup>
 
                         <Box>
-                            <TextField
-                                id="filled-number"
-                                label="Monto del Crédito"
-                                type="number"
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                variant="filled"
-                            />
-                            <TextField
-                                id="filled-number2"
-                                label="Tasa de Interés(%)"
-                                type="number"
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                variant="filled"
-                            />
-                            <TextField
-                                id="filled-number3"
-                                label="Periodo del Crédito (meses)"
-                                type="number"
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                variant="filled"
-                            />
-                            <TextField
-                                id="filled-number"
-                                label="Periodo de Gracia (meses)"
-                                type="number"
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                variant="filled"
-                            />
+                            <Stack spacing={5}>
+                                <TextField
+                                    id="filled-number"
+                                    label="Monto del Crédito"
+                                    type="number"
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }}
+                                    variant="filled"
+                                />
+                                <TextField
+                                    id="filled-number2"
+                                    label="Tasa de Interés(%)"
+                                    type="number"
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }}
+                                    variant="filled"
+                                />
+                                <TextField
+                                    id="filled-number3"
+                                    label="Periodo del Crédito (meses)"
+                                    type="number"
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }}
+                                    variant="filled"
+                                />
+                                <TextField
+                                    id="filled-number"
+                                    label="Periodo de Gracia (meses)"
+                                    type="number"
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }}
+                                    variant="filled"
+                                />
+                                <LocalizationProvider dateAdapter={AdapterDateFns}>
+
+                                    <DesktopDatePicker
+                                        label="Fecha Primera Cuota"
+                                        inputFormat="dd/MM/yyyy"
+                                        value={value}
+                                        onChange={handleChange}
+                                        renderInput={(params) => <TextField {...params} />}
+                                    />
+                                </LocalizationProvider>
+
+
+                            </Stack>
                         </Box>
                         <Button variant="contained" size="large">
                             Generar Plan de pagos

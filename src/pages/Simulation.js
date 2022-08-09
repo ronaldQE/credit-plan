@@ -3,8 +3,8 @@ import Info from "../components/Info";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box'
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
+//import CardActions from '@mui/material/CardActions';
+//import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 
 import imgAPrice from '../img/credit/APrice.PNG';
@@ -16,7 +16,7 @@ import imgKGracia from '../img/credit/kGracia.PNG';
 import imgTablaPrice from '../img/credit/tablaPrice.PNG';
 import imgTablaConst from '../img/credit/tablaConst.PNG';
 import imgTablaGracia from '../img/credit/tablaGracia.PNG';
-import TablePaymentPlan from "../components/TablePaymentPlan";
+//import TablePaymentPlan from "../components/TablePaymentPlan";
 import FormPaymentPlan from "../components/FormPaymentPlan";
 
 const DESCRIPTION_PRICE = [
