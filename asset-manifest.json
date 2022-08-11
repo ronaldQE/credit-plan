@@ -1,18 +1,27 @@
 {
   "files": {
     "main.css": "/financial-mathematics/static/css/main.7fd68467.css",
-    "main.js": "/financial-mathematics/static/js/main.b0420497.js",
+    "main.js": "/financial-mathematics/static/js/main.565bb20e.js",
     "static/js/787.4bb7fd0c.chunk.js": "/financial-mathematics/static/js/787.4bb7fd0c.chunk.js",
+    "static/media/tablaPrice.PNG": "/financial-mathematics/static/media/tablaPrice.cb994cd5279db562630d.PNG",
+    "static/media/tablaConst.PNG": "/financial-mathematics/static/media/tablaConst.98821c6b507cbb9603a5.PNG",
+    "static/media/tablaGracia.PNG": "/financial-mathematics/static/media/tablaGracia.581ad74f9d404ca45264.PNG",
+    "static/media/APrice.PNG": "/financial-mathematics/static/media/APrice.c54c1e8f63bbd34e64bb.PNG",
     "static/media/tasaInteres.PNG": "/financial-mathematics/static/media/tasaInteres.356f3cf8c61390ec5ef8.PNG",
     "static/media/compuesto.PNG": "/financial-mathematics/static/media/compuesto.bed8826be0376528ddae.PNG",
+    "static/media/interesPrice.PNG": "/financial-mathematics/static/media/interesPrice.e2c70a9337187aae096d.PNG",
+    "static/media/kPrice.PNG": "/financial-mathematics/static/media/kPrice.8e8df08c6be0d0f5e703.PNG",
+    "static/media/kGracia.PNG": "/financial-mathematics/static/media/kGracia.f7a6f7d862bfec3f0f0a.PNG",
     "static/media/simple.PNG": "/financial-mathematics/static/media/simple.dfe83b39c0215d105229.PNG",
+    "static/media/kConst.PNG": "/financial-mathematics/static/media/kConst.7b10bd240eeac341c5d1.PNG",
+    "static/media/AConst.PNG": "/financial-mathematics/static/media/AConst.bae91a0e7c8ae52fe6ba.PNG",
     "index.html": "/financial-mathematics/index.html",
     "main.7fd68467.css.map": "/financial-mathematics/static/css/main.7fd68467.css.map",
-    "main.b0420497.js.map": "/financial-mathematics/static/js/main.b0420497.js.map",
+    "main.565bb20e.js.map": "/financial-mathematics/static/js/main.565bb20e.js.map",
     "787.4bb7fd0c.chunk.js.map": "/financial-mathematics/static/js/787.4bb7fd0c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7fd68467.css",
-    "static/js/main.b0420497.js"
+    "static/js/main.565bb20e.js"
   ]
 }
