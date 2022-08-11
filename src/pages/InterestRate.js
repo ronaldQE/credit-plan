@@ -8,7 +8,7 @@ import formulaImgComp from '../img/compuesto.PNG'
 const InterestRate = () => {
     const PARAGRAPH_TASA = ["Es el interes generado en una unidad de tiempo expresado en porcentaje. Las unidades de tiempo por lo general son expresadas por el perido de un año (anual), auque tambien se lo pude expresar mensualmente, trimestral, diariamente, etc. "]
     const PARAGRAPH_SIMPLE = ["Es el que se optiene cuando los interés producidos duarante el tiempo que dura un prestamo, se deben unicamenta al capital inicial. Cuando se utilza el interez simple, los interese son únicamente en función del capital inicial, el número de periodos y la tasa de interés."]
-    const PARAGRAPH_COMP = ["Es el interés generado tanto por el monto inicial como por el interés de los periodos anteriores, es decir aparte del interés del monto inicial, los intereses también generan intereses. Estaa es una práctica adoptada por el sistema finaciero de bancos y cooperaticas."]
+    const PARAGRAPH_COMP = ["Es el interés generado tanto por el monto inicial como por el interés de los periodos anteriores, es decir aparte del interés del monto inicial, los intereses también generan intereses. Esta es una práctica adoptada por el sistema finaciero de bancos y cooperaticas."]
 
     let formulaDescriptionTasa = [
         "i(%) = Tasa de insterés expresado en porcentaje",
@@ -39,13 +39,16 @@ const InterestRate = () => {
                 formulaImg={formulaImgSimple}
                 descriptionFormula={formulaDescriptionSimple}
             />
-            <br />
+            <br/>
             <Info
                 title="Interés compuesto"
                 paragraph={PARAGRAPH_COMP}
                 formulaImg={formulaImgComp}
                 descriptionFormula={formulaDescriptionSimple}
             />
+            <br/>
+            <br/>
+
 
         </div>
     )

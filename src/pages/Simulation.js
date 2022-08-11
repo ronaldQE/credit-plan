@@ -6,6 +6,7 @@ import Card from '@mui/material/Card';
 //import CardActions from '@mui/material/CardActions';
 //import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
 
 import imgAPrice from '../img/credit/APrice.PNG';
 import imgInteresPrice from '../img/credit/interesPrice.PNG';
@@ -47,7 +48,7 @@ const FORMULA_CONST = [
   },
 ]
 const DESCRIPTION_GRACIA = [
-"La facilidad que se brinda con este concepto es que no existe amortización a capital durante el periodo o los periodos de gracia y solo se cancela interés ya sea para la amortización francés o amortización constante."
+  "La facilidad que se brinda con este concepto es que no existe amortización a capital durante el periodo o los periodos de gracia y solo se cancela interés ya sea para la amortización francés o amortización constante."
 ]
 
 const FORMULA_GRACIA = [
@@ -65,7 +66,7 @@ const FORMULA_GRACIA = [
   },
   {
     description: "Representado en una tabla será:",
-    img: imgTablaGracia 
+    img: imgTablaGracia
   },
 ]
 
@@ -97,7 +98,11 @@ const Simulation = () => {
         <Typography variant="body2">
           Amortización es el proceso de cancelar una deuda con sus intereses por medio de pagos periódicos. La amortización toma curso cuando un prestarario le paga a su prestamista un monto de dinero en un cierto lapso de tiempo, incluyendo las correspondientes tasas de interés. La deuda puede extinguirse de una sola vez, o bien hacerlo en forma gradual por medio de pagos parciales por una determida cantidad de tiempo, la que ha sido previamente establecida.
           <br />
-
+          <br />
+          <Button variant="contained" size="large" href="#simulation">
+            Simular Credito
+          </Button>
+          <br />
         </Typography>
 
       </Box>
@@ -185,13 +190,13 @@ const Simulation = () => {
         ))
 
       }
-      <Box>
-      <FormPaymentPlan setDataTable={setDataTable}/>
+      <Box id="simulation">
+        <FormPaymentPlan setDataTable={setDataTable} />
       </Box>
-      <Box sx={{ paddingInline:"200px", display:"block", margin:"auto"}}>
+      <Box sx={{ paddingInline: "200px", display: "block", margin: "auto" }}>
         <h3>Plan de Crédito</h3>
-      <TablePaymentPlan data={dataTable} />
-      <br/>
+        <TablePaymentPlan data={dataTable} />
+        <br />
       </Box>
 
     </div>

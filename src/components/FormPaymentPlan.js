@@ -24,9 +24,12 @@ import PaymentPlan from '../class/PaymentPlan';
 
 const StyledFormControlLabel = styled((props) => <FormControlLabel {...props} />)(
     ({ theme, checked }) => ({
-        '.MuiFormControlLabel-label': checked && {
+        '.MuiFormControlLabel-label': checked ? {
             color: theme.palette.primary.main,
-        },
+            fontSize: 16,
+        }:{fontSize: 14},
+       
+       
     }),
 );
 
@@ -128,7 +131,7 @@ const FormPaymentPlan = ({setDataTable}) => {
 
     return (
         <Box sx={{ marginBottom: "50px", display: "block" }}>
-            <Card sx={{ background: "#F4F5F5", width: 750, margin: "auto", padding: "40px" }}>
+            <Card sx={{ background: "#F4F5F5", width: 750, margin: "auto", paddingInline: "40px" }}>
                 <CardContent>
                     <Box
                         component="form"
@@ -146,7 +149,7 @@ const FormPaymentPlan = ({setDataTable}) => {
                             onChange={handleRadioChange}
                             value={valueRadio}
                         >
-                            <MyFormControlLabel value="price" label="Plan de Pagos Amortización francés PRICE" control={<Radio />} />
+                            <MyFormControlLabel   value="price" label="Plan de Pagos Amortización francés PRICE" control={<Radio />} />
                             <MyFormControlLabel value="const" label="Plan de Pagos Amortización Constante" control={<Radio />} />
                             <MyFormControlLabel value="gracia" label="Plan de Pagos Amortización Constante más Perido de Gracia" control={<Radio />} />
                         </RadioGroup>
