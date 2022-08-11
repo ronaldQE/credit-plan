@@ -6,14 +6,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import PaymentPlan from '../class/PaymentPlan'
 
 
-let plan1 = new PaymentPlan(30000, 4.5, 6, "2022-8-7");
 const headTable=["N°","Saldo","Amortización","Interés","Pago","Fecha"]
-export default function TablePaymentPlan() {
-    let data = plan1.generatePlan_Price()
-    
+export default function TablePaymentPlan(props) {    
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650, }} size="small" aria-label="a dense table">
@@ -29,7 +25,7 @@ export default function TablePaymentPlan() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {data.map((row, index) => (
+                    {props.data.map((row, index) => (
                         <TableRow
                             key={index}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

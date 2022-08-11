@@ -15,7 +15,7 @@ import { Link} from 'react-router-dom';
 const pages = [
   { title: 'Interés', path: '/tasa' },
   { title: 'Credito', path: '/sim' },
-  { title: 'Contactos', path: '/cont' },
+  // { title: 'Contactos', path: '/cont' },
 
 ];
 

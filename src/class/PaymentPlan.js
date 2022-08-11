@@ -92,7 +92,7 @@ class PaymentPlan {
         let res = []
         const PAGO = this.#calcularPago_Price()
         let saldoAnt = this._monto;
-        for (let i = 0; i < (this._periodo + numGracia); i++) {
+        for (let i = 0; i < (parseInt(this._periodo) + parseInt(numGracia)); i++) {
             if (i < numGracia) {
                 let interesMes = this.#calcularInteres(this._monto)
                 let cuotaMes = {
@@ -131,7 +131,7 @@ class PaymentPlan {
         const AMORTIZACION = this.#calcularAmortizacion_Const()
         let res = []
         let saldoAnt = this._monto;
-        for (let i = 0; i < (this._periodo + numGracia); i++) {
+        for (let i = 0; i < (parseInt(this._periodo) + parseInt(numGracia)); i++) {
             if (i < numGracia) {
                 let interesMes = this.#calcularInteres(this._monto)
                 let cuotaMes = {

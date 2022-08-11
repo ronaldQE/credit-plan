@@ -1,8 +1,7 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
@@ -13,13 +12,15 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 import Stack from '@mui/material/Stack';
-//import TextField from '@mui/material/TextField';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-//import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-//import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-//import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import PaymentPlan from '../class/PaymentPlan';
 
 const StyledFormControlLabel = styled((props) => <FormControlLabel {...props} />)(
     ({ theme, checked }) => ({
@@ -49,10 +50,12 @@ MyFormControlLabel.propTypes = {
 };
 
 
-const FormPaymentPlan = () => {
+const FormPaymentPlan = ({setDataTable}) => {
     const [valueDate, setValueDate] = useState(new Date());
     const [valueRadio, setValueRadio] = useState('price');
-    const [showGracia, setShowGracia] = useState(false);
+    //const [showGracia, setShowGracia] = useState(false);
+    const [tasa, setTasa] = useState('anual');
+
 
     const [datos, setDatos] = useState({
         monto: "",
@@ -61,18 +64,19 @@ const FormPaymentPlan = () => {
         gracia: ""
 
     })
-    const [datosCal, setDatosCal] = useState({
-        monto: '',
-        tasa: '',
-        periodo: '',
-        gracia: '',
-        fecha: ''
+    // const [datosCal, setDatosCal] = useState({
+    //     monto: '',
+    //     tasa: '',
+    //     periodo: '',
+    //     gracia: '',
+    //     fecha: ''
 
-    })
+    // })
 
-    const handleChange = (newValue) => {
+    const handleDateChange = (newValue) => {
         console.log(newValue)
         setValueDate(newValue);
+        //console.log(newValue.getDate()) 
 
     };
     const handleInputChange = (event) => {
@@ -82,8 +86,25 @@ const FormPaymentPlan = () => {
         })
     }
     const calcule = () => {
-        console.log(datos)
-        clearForm()
+        //console.log(datos)
+        let tasaI = 0
+        if(tasa === "anual"){
+            tasaI = datos.tasa/12
+        }else{
+            tasaI = datos.tasa
+        }
+        const paymentPlan = new PaymentPlan(datos.monto, tasaI, datos.periodo, valueDate)
+        if(valueRadio === "price"){
+            setDataTable(paymentPlan.generatePlan_Price())
+            
+        }
+        if(valueRadio === "const"){
+           setDataTable( paymentPlan.generatePlan_Const())
+        }
+        if(valueRadio === "gracia"){
+            setDataTable(paymentPlan.generatePlan_Const_Gracia(datos.gracia))
+        }
+        //clearForm()
     }
     const clearForm = () => {
         setDatos({
@@ -92,21 +113,28 @@ const FormPaymentPlan = () => {
             periodo: "",
             gracia: ""
         })
+        setTasa("anual")
     }
 
-    const handleRadioChange = (event) =>{
+    const handleRadioChange = (event) => {
         setValueRadio(event.target.value);
-        console.log(event.target.value)
+        //console.log(event.target.value)
+    }
+
+    const handleTasaChange = (event) => {
+        //console.log(event.target.value)
+        setTasa(event.target.value)
     }
 
     return (
         <Box sx={{ marginBottom: "50px", display: "block" }}>
-            <Card sx={{ background: "#F4F5F5", width: 700, margin: "auto", padding: "40px" }}>
+            <Card sx={{ background: "#F4F5F5", width: 750, margin: "auto", padding: "40px" }}>
                 <CardContent>
                     <Box
                         component="form"
                         sx={{
                             '& .MuiTextField-root': { m: 1, width: '25ch' },
+                            //'& .MuiForm-root': { m: 1, width: '25ch' },
                         }}
                         noValidate
                         autoComplete="off"
@@ -124,7 +152,7 @@ const FormPaymentPlan = () => {
                         </RadioGroup>
 
                         <Box>
-                            <Stack spacing={5}>
+                            <Stack spacing={0}>
                                 <TextField
                                     id="filled-number"
                                     name="monto"
@@ -136,9 +164,21 @@ const FormPaymentPlan = () => {
                                     }}
                                     variant="filled"
                                     onChange={handleInputChange}
-                                    helperText={datos.monto}
+                                    //helperText={datos.monto}
 
                                 />
+                                 <FormControl variant="filled" sx={{m:1, maxWidth: "215px" }} >
+                                    <InputLabel id="demo-simple-select-filled-label">Perido de tasa</InputLabel>
+                                    <Select
+                                        labelId="demo-simple-select-filled-label"
+                                        id="demo-simple-select-filled"
+                                        value={tasa}
+                                        onChange={handleTasaChange}
+                                    >
+                                        <MenuItem value="anual">Anual</MenuItem>
+                                        <MenuItem value="mensual">Mensual</MenuItem>
+                                    </Select>
+                                </FormControl>
                                 <TextField
                                     id="filled-number2"
                                     name="tasa"
@@ -184,7 +224,7 @@ const FormPaymentPlan = () => {
                                         label="Fecha Primera Cuota"
                                         inputFormat="dd/MM/yyyy"
                                         value={valueDate}
-                                        onChange={handleChange}
+                                        onChange={handleDateChange}
                                         renderInput={(params) => <TextField {...params} />}
                                     />
                                 </LocalizationProvider>

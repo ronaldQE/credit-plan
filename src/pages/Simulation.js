@@ -16,7 +16,7 @@ import imgKGracia from '../img/credit/kGracia.PNG';
 import imgTablaPrice from '../img/credit/tablaPrice.PNG';
 import imgTablaConst from '../img/credit/tablaConst.PNG';
 import imgTablaGracia from '../img/credit/tablaGracia.PNG';
-//import TablePaymentPlan from "../components/TablePaymentPlan";
+import TablePaymentPlan from "../components/TablePaymentPlan";
 import FormPaymentPlan from "../components/FormPaymentPlan";
 
 const DESCRIPTION_PRICE = [
@@ -71,7 +71,7 @@ const FORMULA_GRACIA = [
 
 const Simulation = () => {
 
-
+  const [dataTable, setDataTable] = React.useState([])
   let formulaPrince = [
     {
       description: "Para el cálculo primero se debe calcular el valor de la serie A:",
@@ -185,11 +185,13 @@ const Simulation = () => {
         ))
 
       }
-      <Box sx={{ paddingInline:"200px", display:"block", margin:"auto"}}>
-      {/* <TablePaymentPlan /> */}
-      </Box>
       <Box>
-      <FormPaymentPlan/>
+      <FormPaymentPlan setDataTable={setDataTable}/>
+      </Box>
+      <Box sx={{ paddingInline:"200px", display:"block", margin:"auto"}}>
+        <h3>Plan de Crédito</h3>
+      <TablePaymentPlan data={dataTable} />
+      <br/>
       </Box>
 
     </div>
