@@ -99,7 +99,7 @@ const Simulation = () => {
           Amortización es el proceso de cancelar una deuda con sus intereses por medio de pagos periódicos. La amortización toma curso cuando un prestarario le paga a su prestamista un monto de dinero en un cierto lapso de tiempo, incluyendo las correspondientes tasas de interés. La deuda puede extinguirse de una sola vez, o bien hacerlo en forma gradual por medio de pagos parciales por una determida cantidad de tiempo, la que ha sido previamente establecida.
           <br />
           <br />
-          <Button variant="contained" size="large" href="#simulation">
+          <Button variant="contained" href="#simulation">
             Simular Credito
           </Button>
           <br />
@@ -119,7 +119,7 @@ const Simulation = () => {
               {element.description}
               <br />
             </Typography>
-            <Card variant="outlined" sx={element.img === imgTablaPrice ? { width: 320, display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" } : { width: 200, display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" }}>
+            <Card variant="outlined" sx={element.img === imgTablaPrice ? { width: 300, display: "block", margin: "auto" } : { width: 200, display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" }}>
 
               <CardMedia
                 sx={{ width: "100%", display: "block", margin: "auto" }}
@@ -147,7 +147,7 @@ const Simulation = () => {
               {element.description}
               <br />
             </Typography>
-            <Card variant="outlined" sx={element.img === imgTablaConst ? { width: 320, display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" } : { width: 200, display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" }}>
+            <Card variant="outlined" sx={element.img === imgTablaConst ? { width: 300, display: "block", margin: "auto" } : { width: 200, display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" }}>
 
               <CardMedia
                 sx={{ width: "100%", display: "block", margin: "auto" }}
@@ -175,7 +175,7 @@ const Simulation = () => {
               {element.description}
               <br />
             </Typography>
-            <Card variant="outlined" sx={element.img === imgTablaGracia ? { width:320, display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" } : { width:200, display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" }}>
+            <Card variant="outlined" sx={element.img === imgTablaGracia ? { width:300, display: "block", margin: "auto" } : { width:200, display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" }}>
 
               <CardMedia
                 sx={{ width: "100%", display: "block", margin: "auto" }}
