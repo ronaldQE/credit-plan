@@ -119,7 +119,7 @@ const Simulation = () => {
               {element.description}
               <br />
             </Typography>
-            <Card variant="outlined" sx={element.img === imgTablaPrice ? { width: "40%", display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" } : { width: "20%", display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" }}>
+            <Card variant="outlined" sx={element.img === imgTablaPrice ? { width: 320, display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" } : { width: 200, display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" }}>
 
               <CardMedia
                 sx={{ width: "100%", display: "block", margin: "auto" }}
@@ -147,7 +147,7 @@ const Simulation = () => {
               {element.description}
               <br />
             </Typography>
-            <Card variant="outlined" sx={element.img === imgTablaConst ? { width: "40%", display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" } : { width: "20%", display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" }}>
+            <Card variant="outlined" sx={element.img === imgTablaConst ? { width: 320, display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" } : { width: 200, display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" }}>
 
               <CardMedia
                 sx={{ width: "100%", display: "block", margin: "auto" }}
@@ -175,7 +175,7 @@ const Simulation = () => {
               {element.description}
               <br />
             </Typography>
-            <Card variant="outlined" sx={element.img === imgTablaGracia ? { width: "40%", display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" } : { width: "20%", display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" }}>
+            <Card variant="outlined" sx={element.img === imgTablaGracia ? { width:320, display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" } : { width:200, display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" }}>
 
               <CardMedia
                 sx={{ width: "100%", display: "block", margin: "auto" }}
@@ -193,7 +193,7 @@ const Simulation = () => {
       <Box id="simulation">
         <FormPaymentPlan setDataTable={setDataTable} />
       </Box>
-      <Box sx={{ paddingInline: "200px", display: "block", margin: "auto" }}>
+      <Box sx={{ display: "block", margin: "auto" }}>
         <h3>Plan de Crédito</h3>
         <TablePaymentPlan data={dataTable} />
         <br />

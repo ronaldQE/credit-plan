@@ -28,10 +28,10 @@ const Info = (props) => {
 
                         </Typography>
                         ))}
-                        {props.formulaImg ? <Card variant="outlined" sx={{ width: "220px", display: "block", marginTop: "10px", marginBottom: "10px", margin: "auto" }}>
+                        {props.formulaImg ? <Card variant="outlined" sx={{ width: "220px", display: "block",margin: "auto", marginBlock:2 , marginBottom: "10px",  }}>
 
                             <CardMedia
-                                sx={{ width: "200px", display: "block", margin: "auto" }}
+                                sx={{ width: 200, display: "block", margin:"auto" }}
                                 component="img"
                                 height="100%"
                                 image={props.formulaImg}

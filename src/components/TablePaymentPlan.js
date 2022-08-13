@@ -12,7 +12,7 @@ const headTable=["N°","Saldo","Amortización","Interés","Pago","Fecha"]
 export default function TablePaymentPlan(props) {    
     return (
         <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650, }} size="small" aria-label="a dense table">
+            <Table  size="small" aria-label="a dense table">
                 <TableHead sx={{background:"#CCCCCC"}}>
                     <TableRow>
                         { headTable.map((title)=>(

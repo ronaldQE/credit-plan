@@ -19,6 +19,7 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 import Select from '@mui/material/Select';
 import PaymentPlan from '../class/PaymentPlan';
 
@@ -109,15 +110,15 @@ const FormPaymentPlan = ({setDataTable}) => {
         }
         //clearForm()
     }
-    const clearForm = () => {
-        setDatos({
-            monto: "",
-            tasa: "",
-            periodo: "",
-            gracia: ""
-        })
-        setTasa("anual")
-    }
+    // const clearForm = () => {
+    //     setDatos({
+    //         monto: "",
+    //         tasa: "",
+    //         periodo: "",
+    //         gracia: ""
+    //     })
+    //     setTasa("anual")
+    // }
 
     const handleRadioChange = (event) => {
         setValueRadio(event.target.value);
@@ -130,9 +131,10 @@ const FormPaymentPlan = ({setDataTable}) => {
     }
 
     return (
-        <Box sx={{ marginBottom: "50px", display: "block" }}>
-            <Card sx={{ background: "#F4F5F5", width: 750, margin: "auto", paddingInline: "40px" }}>
+        <Box sx={{ marginBottom:5, display: "block" }}>
+            <Card sx={{ background: "#F4F5F5", margin: "auto", paddingInline:2 }}>
                 <CardContent>
+
                     <Box
                         component="form"
                         sx={{
@@ -143,19 +145,20 @@ const FormPaymentPlan = ({setDataTable}) => {
                         autoComplete="off"
                     >
                         <h3>Simulador de Credito</h3>
-
+                        <FormLabel id="demo-radio-buttons-group-label">Plan de Pagos Amortización:</FormLabel>
                         <RadioGroup
                             name="use-radio-group"
                             onChange={handleRadioChange}
                             value={valueRadio}
+                            
                         >
-                            <MyFormControlLabel   value="price" label="Plan de Pagos Amortización francés PRICE" control={<Radio />} />
-                            <MyFormControlLabel value="const" label="Plan de Pagos Amortización Constante" control={<Radio />} />
-                            <MyFormControlLabel value="gracia" label="Plan de Pagos Amortización Constante más Perido de Gracia" control={<Radio />} />
+                            <MyFormControlLabel   value="price" label="Francés PRICE" control={<Radio />} />
+                            <MyFormControlLabel value="const" label="Constante" control={<Radio />} />
+                            <MyFormControlLabel value="gracia" label="Constante más Perido de Gracia" control={<Radio />} />
                         </RadioGroup>
 
-                        <Box>
-                            <Stack spacing={0}>
+                        <Box >
+                            <Stack spacing={0} sx={{display:"block", margin:"auto"}}>
                                 <TextField
                                     id="filled-number"
                                     name="monto"
@@ -170,7 +173,7 @@ const FormPaymentPlan = ({setDataTable}) => {
                                     //helperText={datos.monto}
 
                                 />
-                                 <FormControl variant="filled" sx={{m:1, maxWidth: "215px" }} >
+                                 <FormControl variant="filled" sx={{m:1, minWidth: "215px" }} >
                                     <InputLabel id="demo-simple-select-filled-label">Perido de tasa</InputLabel>
                                     <Select
                                         labelId="demo-simple-select-filled-label"
