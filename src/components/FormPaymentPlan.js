@@ -100,13 +100,18 @@ const FormPaymentPlan = ({setDataTable}) => {
         const paymentPlan = new PaymentPlan(datos.monto, tasaI, datos.periodo, valueDate)
         if(valueRadio === "price"){
             setDataTable(paymentPlan.generatePlan_Price())
+            //console.table(paymentPlan.getTotales())
             
         }
         if(valueRadio === "const"){
            setDataTable( paymentPlan.generatePlan_Const())
+           //console.table(paymentPlan.getTotales())
+
         }
         if(valueRadio === "gracia"){
             setDataTable(paymentPlan.generatePlan_Const_Gracia(datos.gracia))
+            //console.table(paymentPlan.getTotales())
+
         }
         //clearForm()
     }

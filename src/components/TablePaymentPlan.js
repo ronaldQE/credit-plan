@@ -28,7 +28,7 @@ export default function TablePaymentPlan(props) {
                     {props.data.map((row, index) => (
                         <TableRow
                             key={index}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                           sx={row.saldo === "TOTAL" ? {background:"#CCCCCC", '&:last-child td, &:last-child th': { border: 0 }}:{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                             <TableCell component="th" scope="row" align="center">
                                 {row.num}

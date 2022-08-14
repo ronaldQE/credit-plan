@@ -119,7 +119,7 @@ const Simulation = () => {
               {element.description}
               <br />
             </Typography>
-            <Card variant="outlined" sx={element.img === imgTablaPrice ? { width: 300, display: "block", margin: "auto" } : { width: 200, display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" }}>
+            <Card variant="outlined" sx={element.img === imgTablaPrice ? styleImg(300) : styleImg(200)}>
 
               <CardMedia
                 sx={{ width: "100%", display: "block", margin: "auto" }}
@@ -147,7 +147,7 @@ const Simulation = () => {
               {element.description}
               <br />
             </Typography>
-            <Card variant="outlined" sx={element.img === imgTablaConst ? { width: 300, display: "block", margin: "auto" } : { width: 200, display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" }}>
+            <Card variant="outlined" sx={element.img === imgTablaConst ? styleImg(300) : styleImg(200)}>
 
               <CardMedia
                 sx={{ width: "100%", display: "block", margin: "auto" }}
@@ -175,7 +175,7 @@ const Simulation = () => {
               {element.description}
               <br />
             </Typography>
-            <Card variant="outlined" sx={element.img === imgTablaGracia ? { width:300, display: "block", margin: "auto" } : { width:200, display: "block", marginTop: "20px", marginBottom: "10px", margin: "auto" }}>
+            <Card variant="outlined" sx={element.img === imgTablaGracia ? styleImg(300) : styleImg(200)}>
 
               <CardMedia
                 sx={{ width: "100%", display: "block", margin: "auto" }}
@@ -201,5 +201,13 @@ const Simulation = () => {
 
     </div>
   )
+}
+
+const styleImg = (widthImg) => {
+  return ({
+    width: widthImg,
+    display: "block",
+    margin: "auto"
+  })
 }
 export default Simulation;
