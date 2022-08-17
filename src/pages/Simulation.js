@@ -19,6 +19,7 @@ import imgTablaConst from '../img/credit/tablaConst.PNG';
 import imgTablaGracia from '../img/credit/tablaGracia.PNG';
 import TablePaymentPlan from "../components/TablePaymentPlan";
 import FormPaymentPlan from "../components/FormPaymentPlan";
+import Report from "../class/Report";
 
 const DESCRIPTION_PRICE = [
   "El sistema francés de amortización consiste en la amortización de éste mediante una renta constante de n términos. Es un sistema matemático que se utiliza para amortizar un crédito. Su característica principal radica en la cuota de amortización, ya que es igual para todo el período del préstamo, en créditos a tasa fija. Su cálculo es complejo pero en líneas generales se puede decir que el capital se amortiza en forma creciente, mientras que los intereses se calculan sobre el saldo, motivo por el cual son decrecientes. Es el sistema de amortización más difundido entre los bancos y usualmente va asociado a una tasa más baja que el crédito con sistema alemán de amortización. Sin embargo, presenta la desventaja de que si existen posibilidades de precancelar el crédito en un lapso breve de su otorgamiento, el capital adeudado sea más abultado.",
@@ -70,9 +71,12 @@ const FORMULA_GRACIA = [
   },
 ]
 
+let report = new Report
+
 const Simulation = () => {
 
   const [dataTable, setDataTable] = React.useState([])
+  const [dataCredit, setDataCredit] = React.useState(null)
   let formulaPrince = [
     {
       description: "Para el cálculo primero se debe calcular el valor de la serie A:",
@@ -91,6 +95,14 @@ const Simulation = () => {
       img: imgTablaPrice
     },
   ]
+  const generatePdf = () => {
+    if(dataTable.length === 0){
+      alert("Primero debe genarar el Plan de pagos")
+    }else{
+      report.generateReport(dataTable, dataCredit)
+    }
+  }
+
   return (
     <div className="App">
       <h2>Amortización de Deudas</h2>
@@ -191,11 +203,16 @@ const Simulation = () => {
 
       }
       <Box id="simulation">
-        <FormPaymentPlan setDataTable={setDataTable} />
+        <FormPaymentPlan setDataTable={setDataTable} setDataCredit={setDataCredit} />
       </Box>
       <Box sx={{ display: "block", margin: "auto" }}>
         <h3>Plan de Crédito</h3>
         <TablePaymentPlan data={dataTable} />
+        <br />
+        <Button variant="contained" color="secondary" size="large" onClick={generatePdf}>
+          Descargar PDF
+        </Button>
+        <br />
         <br />
       </Box>
 

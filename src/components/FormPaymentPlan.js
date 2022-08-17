@@ -54,11 +54,12 @@ MyFormControlLabel.propTypes = {
 };
 
 
-const FormPaymentPlan = ({setDataTable}) => {
+const FormPaymentPlan = (props) => {
     const [valueDate, setValueDate] = useState(new Date());
     const [valueRadio, setValueRadio] = useState('price');
     //const [showGracia, setShowGracia] = useState(false);
     const [tasa, setTasa] = useState('anual');
+    //const [gracia, setGracia] = useState(0);
 
 
     const [datos, setDatos] = useState({
@@ -88,9 +89,18 @@ const FormPaymentPlan = ({setDataTable}) => {
             ...datos,
             [event.target.name]: event.target.value
         })
+
     }
     const calcule = () => {
         //console.log(datos)
+        props.setDataCredit({
+            monto: datos.monto,
+            tasa: datos.tasa,
+            periodo: datos.periodo,
+            tipoTasa: tasa,
+            gracia: datos.gracia,
+            tipoCredit:valueRadio
+        })
         let tasaI = 0
         if(tasa === "anual"){
             tasaI = datos.tasa/12
@@ -99,17 +109,17 @@ const FormPaymentPlan = ({setDataTable}) => {
         }
         const paymentPlan = new PaymentPlan(datos.monto, tasaI, datos.periodo, valueDate)
         if(valueRadio === "price"){
-            setDataTable(paymentPlan.generatePlan_Price())
+            props.setDataTable(paymentPlan.generatePlan_Price())
             //console.table(paymentPlan.getTotales())
             
         }
         if(valueRadio === "const"){
-           setDataTable( paymentPlan.generatePlan_Const())
+           props.setDataTable( paymentPlan.generatePlan_Const())
            //console.table(paymentPlan.getTotales())
 
         }
         if(valueRadio === "gracia"){
-            setDataTable(paymentPlan.generatePlan_Const_Gracia(datos.gracia))
+            props.setDataTable(paymentPlan.generatePlan_Const_Gracia(datos.gracia))
             //console.table(paymentPlan.getTotales())
 
         }
