@@ -108,7 +108,7 @@ const NavBar = () => {
                 textDecoration: 'none',
               }}
             >
-              LOGO
+              MATEFIN
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {pages.map((page) => (
