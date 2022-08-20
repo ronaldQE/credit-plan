@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/financial-mathematics/static/css/main.c9848b3f.css",
-    "main.js": "/financial-mathematics/static/js/main.5ba74725.js",
+    "main.js": "/financial-mathematics/static/js/main.b8a36d20.js",
     "static/js/787.4bb7fd0c.chunk.js": "/financial-mathematics/static/js/787.4bb7fd0c.chunk.js",
     "static/media/tablaPrice.PNG": "/financial-mathematics/static/media/tablaPrice.cb994cd5279db562630d.PNG",
     "static/media/tablaConst.PNG": "/financial-mathematics/static/media/tablaConst.98821c6b507cbb9603a5.PNG",
@@ -17,11 +17,11 @@
     "static/media/AConst.PNG": "/financial-mathematics/static/media/AConst.bae91a0e7c8ae52fe6ba.PNG",
     "index.html": "/financial-mathematics/index.html",
     "main.c9848b3f.css.map": "/financial-mathematics/static/css/main.c9848b3f.css.map",
-    "main.5ba74725.js.map": "/financial-mathematics/static/js/main.5ba74725.js.map",
+    "main.b8a36d20.js.map": "/financial-mathematics/static/js/main.b8a36d20.js.map",
     "787.4bb7fd0c.chunk.js.map": "/financial-mathematics/static/js/787.4bb7fd0c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c9848b3f.css",
-    "static/js/main.5ba74725.js"
+    "static/js/main.b8a36d20.js"
   ]
 }
