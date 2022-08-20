@@ -6,7 +6,8 @@ export default class Report {
 
     URL = 'https://ronaldqe.github.io/financial-mathematics/'
 
-    constructor() { }
+    constructor(){
+     }
     getItems(items) {
         const list = items.map((item) => {
             let styleRow = (item.saldo === 'TOTAL') ? 'tableHeaderTotal' : 'tableRow'
@@ -153,7 +154,7 @@ export default class Report {
 
             },
         }
-        pdfMake.createPdf(report).open()
+        pdfMake.createPdf(report).download()
 
     }
 

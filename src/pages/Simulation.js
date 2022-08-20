@@ -71,7 +71,6 @@ const FORMULA_GRACIA = [
   },
 ]
 
-let report = new Report
 
 const Simulation = () => {
 
@@ -96,9 +95,11 @@ const Simulation = () => {
     },
   ]
   const generatePdf = () => {
+    
     if(dataTable.length === 0){
-      alert("Primero debe genarar el Plan de pagos")
+      alert("Primero debe generar el Plan de pagos")
     }else{
+      let report = new Report()
       report.generateReport(dataTable, dataCredit)
     }
   }
@@ -125,13 +126,13 @@ const Simulation = () => {
         descriptionFormula={[]}
       />
       {
-        formulaPrince.map((element) => (
-          <Box sx={{ margin: "30px" }}>
+        formulaPrince.map((element, index) => (
+          <Box key={index} sx={{ margin: "30px" }}>
             <Typography variant="body2" sx={{ margin: "10px" }}>
               {element.description}
               <br />
             </Typography>
-            <Card variant="outlined" sx={element.img === imgTablaPrice ? styleImg(300) : styleImg(200)}>
+            <Card variant="outlined" sx={(element.img === imgTablaPrice) ? styleImg(300) : styleImg(200)}>
 
               <CardMedia
                 sx={{ width: "100%", display: "block", margin: "auto" }}
@@ -153,13 +154,13 @@ const Simulation = () => {
         descriptionFormula={[]}
       />
       {
-        FORMULA_CONST.map((element) => (
-          <Box sx={{ margin: "30px" }}>
+        FORMULA_CONST.map((element, index) => (
+          <Box key={index} sx={{ margin: "30px" }}>
             <Typography variant="body2" sx={{ margin: "10px" }}>
               {element.description}
               <br />
             </Typography>
-            <Card variant="outlined" sx={element.img === imgTablaConst ? styleImg(300) : styleImg(200)}>
+            <Card variant="outlined" sx={(element.img === imgTablaConst) ? styleImg(300) : styleImg(200)}>
 
               <CardMedia
                 sx={{ width: "100%", display: "block", margin: "auto" }}
@@ -181,13 +182,13 @@ const Simulation = () => {
         descriptionFormula={[]}
       />
       {
-        FORMULA_GRACIA.map((element) => (
-          <Box sx={{ margin: "30px" }}>
+        FORMULA_GRACIA.map((element, index) => (
+          <Box key={index} sx={{ margin: "30px" }}>
             <Typography variant="body2" sx={{ margin: "10px" }}>
               {element.description}
               <br />
             </Typography>
-            <Card variant="outlined" sx={element.img === imgTablaGracia ? styleImg(300) : styleImg(200)}>
+            <Card variant="outlined" sx={(element.img === imgTablaGracia) ? styleImg(300) : styleImg(200)}>
 
               <CardMedia
                 sx={{ width: "100%", display: "block", margin: "auto" }}
