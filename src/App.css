@@ -1,12 +1,15 @@
 .App {
   text-align: center;
+  padding-inline: 10px;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
+html{
+  scroll-behavior: smooth;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -36,3 +39,4 @@
     transform: rotate(360deg);
   }
 }
+
