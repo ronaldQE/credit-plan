@@ -127,12 +127,12 @@ const Simulation = () => {
       />
       {
         formulaPrince.map((element, index) => (
-          <Box key={index} sx={{ margin: "30px" }}>
+          <Box key={index}>
             <Typography variant="body2" sx={{ margin: "10px" }}>
               {element.description}
               <br />
             </Typography>
-            <Card variant="outlined" sx={(element.img === imgTablaPrice) ? styleImg(300) : styleImg(200)}>
+            <Card variant="outlined" sx={(element.img === imgTablaPrice) ? styleImg("100%") : styleImg(200)}>
 
               <CardMedia
                 sx={{ width: "100%", display: "block", margin: "auto" }}
@@ -155,12 +155,12 @@ const Simulation = () => {
       />
       {
         FORMULA_CONST.map((element, index) => (
-          <Box key={index} sx={{ margin: "30px" }}>
+          <Box key={index}>
             <Typography variant="body2" sx={{ margin: "10px" }}>
               {element.description}
               <br />
             </Typography>
-            <Card variant="outlined" sx={(element.img === imgTablaConst) ? styleImg(300) : styleImg(200)}>
+            <Card variant="outlined" sx={(element.img === imgTablaConst) ? styleImg("100%") : styleImg(200)}>
 
               <CardMedia
                 sx={{ width: "100%", display: "block", margin: "auto" }}
@@ -183,12 +183,12 @@ const Simulation = () => {
       />
       {
         FORMULA_GRACIA.map((element, index) => (
-          <Box key={index} sx={{ margin: "30px" }}>
+          <Box key={index} >
             <Typography variant="body2" sx={{ margin: "10px" }}>
               {element.description}
               <br />
             </Typography>
-            <Card variant="outlined" sx={(element.img === imgTablaGracia) ? styleImg(300) : styleImg(200)}>
+            <Card variant="outlined" sx={(element.img === imgTablaGracia) ? styleImg("100%") : styleImg(200)}>
 
               <CardMedia
                 sx={{ width: "100%", display: "block", margin: "auto" }}
@@ -203,7 +203,7 @@ const Simulation = () => {
         ))
 
       }
-      <Box id="simulation">
+      <Box id="simulation" sx={{mt:5}}>
         <FormPaymentPlan setDataTable={setDataTable} setDataCredit={setDataCredit} />
       </Box>
       <Box sx={{ display: "block", margin: "auto" }}>
@@ -225,7 +225,8 @@ const styleImg = (widthImg) => {
   return ({
     width: widthImg,
     display: "block",
-    margin: "auto"
+    margin: "auto",
+    maxWidth: "600px"
   })
 }
 export default Simulation;

@@ -31,9 +31,9 @@ const NavBar = () => {
   };
 
   return (
-    <Box>
+    <Box sx={{mb:15}}>
 
-      <AppBar position="static">
+      <AppBar position="fixed" >
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

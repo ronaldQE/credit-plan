@@ -57,31 +57,19 @@ MyFormControlLabel.propTypes = {
 const FormPaymentPlan = (props) => {
     const [valueDate, setValueDate] = useState(new Date());
     const [valueRadio, setValueRadio] = useState('price');
-    //const [showGracia, setShowGracia] = useState(false);
     const [tasa, setTasa] = useState('anual');
-    //const [gracia, setGracia] = useState(0);
-
 
     const [datos, setDatos] = useState({
-        monto: "",
-        tasa: "",
-        periodo: "",
-        gracia: ""
+        monto: null,
+        tasa: null,
+        periodo: null,
+        gracia: null
 
     })
-    // const [datosCal, setDatosCal] = useState({
-    //     monto: '',
-    //     tasa: '',
-    //     periodo: '',
-    //     gracia: '',
-    //     fecha: ''
-
-    // })
 
     const handleDateChange = (newValue) => {
         console.log(newValue)
         setValueDate(newValue);
-        //console.log(newValue.getDate()) 
 
     };
     const handleInputChange = (event) => {
@@ -92,7 +80,6 @@ const FormPaymentPlan = (props) => {
 
     }
     const calcule = () => {
-        //console.log(datos)
         props.setDataCredit({
             monto: datos.monto,
             tasa: datos.tasa,
@@ -102,62 +89,53 @@ const FormPaymentPlan = (props) => {
             tipoCredit:valueRadio
         })
         let tasaI = 0
-        if(tasa === "anual"){
-            tasaI = datos.tasa/12
+        console.log("datos: ",datos.monto)
+        if(datos.monto != null && datos.periodo != null && datos.tasa){
+
+            if(tasa === "anual"){
+                tasaI = datos.tasa/12
+            }else{
+                tasaI = datos.tasa
+            }
+            const paymentPlan = new PaymentPlan(datos.monto, tasaI, datos.periodo, valueDate)
+            if(valueRadio === "price"){
+                props.setDataTable(paymentPlan.generatePlan_Price())
+                
+            }
+            if(valueRadio === "const"){
+               props.setDataTable( paymentPlan.generatePlan_Const())
+    
+            }
+            if(valueRadio === "gracia"){
+                props.setDataTable(paymentPlan.generatePlan_Const_Gracia(datos.gracia))
+            }
         }else{
-            tasaI = datos.tasa
+            alert("Existen campos vacios")
         }
-        const paymentPlan = new PaymentPlan(datos.monto, tasaI, datos.periodo, valueDate)
-        if(valueRadio === "price"){
-            props.setDataTable(paymentPlan.generatePlan_Price())
-            //console.table(paymentPlan.getTotales())
-            
-        }
-        if(valueRadio === "const"){
-           props.setDataTable( paymentPlan.generatePlan_Const())
-           //console.table(paymentPlan.getTotales())
-
-        }
-        if(valueRadio === "gracia"){
-            props.setDataTable(paymentPlan.generatePlan_Const_Gracia(datos.gracia))
-            //console.table(paymentPlan.getTotales())
-
-        }
-        //clearForm()
     }
-    // const clearForm = () => {
-    //     setDatos({
-    //         monto: "",
-    //         tasa: "",
-    //         periodo: "",
-    //         gracia: ""
-    //     })
-    //     setTasa("anual")
-    // }
 
     const handleRadioChange = (event) => {
         setValueRadio(event.target.value);
-        //console.log(event.target.value)
     }
 
     const handleTasaChange = (event) => {
-        //console.log(event.target.value)
         setTasa(event.target.value)
     }
 
     return (
         <Box sx={{ marginBottom:5, display: "block" }}>
-            <Card sx={{ background: "#F4F5F5", margin: "auto", paddingInline:2 }}>
+            <Card sx={{ background: "#F4F5F5", margin: "auto", paddingInline:"5%"}}>
                 <CardContent>
 
                     <Box
                         component="form"
                         sx={{
                             '& .MuiTextField-root': { m: 1, width: '25ch' },
-                            //'& .MuiForm-root': { m: 1, width: '25ch' },
+                            
                         }}
                         noValidate
                         autoComplete="off"
+                        
                     >
                         <h3>Simulador de Credito</h3>
                         <FormLabel id="demo-radio-buttons-group-label">Plan de Pagos Amortización:</FormLabel>
@@ -172,7 +150,7 @@ const FormPaymentPlan = (props) => {
                             <MyFormControlLabel value="gracia" label="Constante más Perido de Gracia" control={<Radio />} />
                         </RadioGroup>
 
-                        <Box >
+                        <Box sx={{display:"block"}}>
                             <Stack spacing={0} sx={{display:"block", margin:"auto"}}>
                                 <TextField
                                     id="filled-number"
@@ -185,7 +163,6 @@ const FormPaymentPlan = (props) => {
                                     }}
                                     variant="filled"
                                     onChange={handleInputChange}
-                                    //helperText={datos.monto}
 
                                 />
                                  <FormControl variant="filled" sx={{m:1, minWidth: "215px" }} >

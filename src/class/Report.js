@@ -1,5 +1,6 @@
 import pdfMake from 'pdfmake/build/pdfmake'
 import pdfFonts from 'pdfmake/build/vfs_fonts'
+import printJS from 'print-js';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export default class Report {
@@ -154,7 +155,19 @@ export default class Report {
 
             },
         }
-        pdfMake.createPdf(report).download()
+        //pdfMake.createPdf(report).download()
+        var document = pdfMake.createPdf(report)
+        var docBlob = null;
+
+        document.getBase64(function(result){
+            docBlob = result;
+            printJS({
+                printable: docBlob,
+                type: "pdf",
+                base64: true
+            })
+        })
+
 
     }
 
