@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/credit-plan/static/css/main.c9848b3f.css",
-    "main.js": "/credit-plan/static/js/main.b8c84545.js",
+    "main.js": "/credit-plan/static/js/main.2aed40bd.js",
     "static/js/787.66b1ed09.chunk.js": "/credit-plan/static/js/787.66b1ed09.chunk.js",
     "static/media/tablaPrice.PNG": "/credit-plan/static/media/tablaPrice.cb994cd5279db562630d.PNG",
     "static/media/tablaConst.PNG": "/credit-plan/static/media/tablaConst.98821c6b507cbb9603a5.PNG",
@@ -17,11 +17,11 @@
     "static/media/AConst.PNG": "/credit-plan/static/media/AConst.bae91a0e7c8ae52fe6ba.PNG",
     "index.html": "/credit-plan/index.html",
     "main.c9848b3f.css.map": "/credit-plan/static/css/main.c9848b3f.css.map",
-    "main.b8c84545.js.map": "/credit-plan/static/js/main.b8c84545.js.map",
+    "main.2aed40bd.js.map": "/credit-plan/static/js/main.2aed40bd.js.map",
     "787.66b1ed09.chunk.js.map": "/credit-plan/static/js/787.66b1ed09.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c9848b3f.css",
-    "static/js/main.b8c84545.js"
+    "static/js/main.2aed40bd.js"
   ]
 }
